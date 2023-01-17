@@ -1,9 +1,8 @@
 const tail = require('../tail');
-const assertEqual = require('../assertEqual');
+const expect = require('chai').expect;
 
-const array = ["Hello", "Lighthouse", "Labs"];
-const result = tail(array);
-
-for (let i = 1; i < array.length; i++) {
-  assertEqual(array[i], result[i - 1]);
-}
+describe('#tail', () => {
+  it('returns ["Lighthouse", "Labs"] for ["Hello", "Lighthouse", "Labs"]', () => {
+    expect(tail(["Hello", "Lighthouse", "Labs"])).to.eql(["Lighthouse", "Labs"]);
+  });
+});
